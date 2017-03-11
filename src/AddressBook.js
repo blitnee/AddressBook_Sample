@@ -1,6 +1,17 @@
 function AddressBook() {
 	this.contacts = [];
+	this.initialComplete = false;
+}
 
+// Allows for Async, pulling contacts from database
+AddressBook.prototype.getInitialContacts = function(cb) {
+	var self = this;
+	setTimeout(function() {
+		self.initialComplete = true;
+		if (cb) {
+			return cb();
+		}
+	}, 3);
 }
 
 AddressBook.prototype.addContact = function(contact) {
@@ -14,3 +25,4 @@ AddressBook.prototype.getContact = function(index) {
 AddressBook.prototype.deleteContact = function(index) {
 	this.contacts.splice(index, 1);
 }
+
