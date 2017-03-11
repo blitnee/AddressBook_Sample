@@ -22,9 +22,9 @@ describe('AddressBook', function() {
 
 
 describe('Async Address Book', function() {
-	var addressBook = new AddressBook();
 
 	beforeEach(function(done) {
+		addressBook = new AddressBook();
 		addressBook.getInitialContacts(function() {
 			done();
 		});
